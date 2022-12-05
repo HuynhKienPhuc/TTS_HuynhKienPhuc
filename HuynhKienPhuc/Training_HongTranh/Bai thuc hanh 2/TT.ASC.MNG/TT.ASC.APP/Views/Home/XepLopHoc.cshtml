@@ -1,0 +1,112 @@
+﻿
+@{
+    ViewBag.Title = "XepLopHoc";
+    Layout = "~/Views/Shared/Layout.cshtml";
+    var coso = Session["CoSo"] as List<TT.ASC.DATA.CoSo>;
+    var lophoc = Session["LopHoc"] as List<TT.ASC.DATA.LopHoc>;
+}
+<link href="~/Content/style.css" rel="stylesheet" />
+@using TT.ASC.DATA
+@model List<SinhVien>
+
+<h3>Xếp lớp cho sinh viên</h3>
+<form action="/Home/XepLopHoc" method="post">
+    <label for="soluongcoso">Nhập số lượng cơ sở: </label>
+    <input type="number" name="soluongcoso" value="1" min="1" /><br />
+    <label for="soluonglophoc">Nhập số lượng lớp học: </label>
+    <input type="number" name="soluonglophoc" value="1" min="1" /><br />
+    <label for="sosvmoilop">Nhập số lượng sinh viên mỗi lớp: </label>
+    <input type="number" name="sosvmoilop" value="1" min="1" /><br />
+    <label for="soluongsv">Nhập số lượng sinh viên: </label>
+    <input type="number" name="soluongsv" value="1" min="1" /><br />
+    <label for="soluongnam">Nhập số lượng sinh viên nam: </label>
+    <input type="number" name="soluongnam" value="0" min="0" /><br />
+    <label for="soluongnu">Nhập số lượng sinh viên nữ: </label>
+    <input type="number" name="soluongnu" value="0" min="0" /><br />
+    <input type="submit" value="Xếp lớp" />
+</form>
+@if (Model != null)
+{
+    @*<h4>Số lớp: @ViewBag.SoLop</h4>
+    <h4>Số sinh viên mỗi lớp: @ViewBag.SoSVMoiLop</h4>
+    <h4>Số lượng sinh viên: @Model.Count</h4>
+    <h5>@ViewBag.SoNam</h5>
+    <h5>@ViewBag.SoNu</h5>
+    <div>
+        <table border="1" class="table table-hover">
+            <tr>
+                <th>ID</th>
+                <th>Mã SV</th>
+                <th>Họ đệm</th>
+                <th>Tên</th>
+                <th>Giới tính</th>
+                <th>Lớp học</th>
+            </tr>
+            @foreach (var sv in Model)
+            {
+                <tr>
+                    <td>@sv.ID</td>
+                    <td>@sv.Ma</td>
+                    <td>@sv.HoDem</td>
+                    <td>@sv.Ten</td>
+                    @switch (sv.GioiTinh)
+                    {
+                        case 1:
+                            <td>Nam</td>
+                            break;
+                        case 2:
+                            <td>Nữ</td>
+                            break;
+                        case 3:
+                            <td>Khác</td>
+                            break;
+                        default:
+                            break;
+                    }
+                    <td>@sv.LopHoc</td>
+                </tr>
+            }
+        </table>
+    </div>*@
+    if(coso != null)
+    {
+        <ul id="myUL">
+            @foreach(var cs in coso)
+            {
+                <li><span class="caret"></span>@cs.Ten
+                    @if(lophoc != null)
+                     {
+                        <ul class="nested">
+                            @foreach(var lh in lophoc)
+                            {
+                                if(lh.CoSoDaoTao == cs.ID)
+                                {
+                                    <li><span class="caret"></span>@lh.NamMoLop
+                                        <ul class="nested">
+                                            @foreach(var lh2 in lophoc)
+                                            {
+                                                if(lh2.NamMoLop == lh.NamMoLop)
+                                                {
+                                                    <li>
+                                                        <a href="@Url.Action("HTSinhVienTheoLop", "Home", new { id = lh2.ID})">@lh2.TenLop</a>
+                                                    </li>
+                                                }
+                                            }
+                                        </ul>                                       
+                                    </li>
+                                }
+                            }
+                        </ul>
+                     }
+                </li>
+            }
+        </ul>
+       
+    }
+}
+else
+{
+    <label>@ViewBag.ThongBao</label>
+}
+
+<script src="~/Scripts/TreeView.js"></script>

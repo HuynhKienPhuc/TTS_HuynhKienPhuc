@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "TaoListSinhVien";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@using TT.ASC.DATA
+@model List<SinhVien>
+
+<h3>Tạo list sinh viên ngẫu nhiên</h3>
+<form action="/Home/TaoListSinhVien" method="post">
+    <label for="soluongsv">Nhập số lượng sinh viên: </label>
+    <input type="number" name="soluongsv" value="1" min="1" /><br />
+    <label for="soluongnam">Nhập số lượng sinh viên nam: </label>
+    <input type="number" name="soluongnam" value="0" min="0" /><br />
+    <label for="soluongnu">Nhập số lượng sinh viên nữ: </label>
+    <input type="number" name="soluongnu" value="0" min="0" /><br />
+    <input type="submit" value="Tạo" />
+</form>
+@if (Model != null)
+{
+    <h4>Số lượng sinh viên: @Model.Count</h4>
+    <h5>@ViewBag.SoNam</h5>
+    <h5>@ViewBag.SoNu</h5>
+    <div>
+        <table border="1" class="table table-hover">
+            <tr>
+                <th>ID</th>
+                <th>Mã SV</th>
+                <th>Họ đệm</th>
+                <th>Tên</th>
+                <th>Giới tính</th>
+                <th>Lớp học</th>
+            </tr>
+            @foreach (var sv in Model)
+            {
+                <tr>
+                    <td>@sv.ID</td>
+                    <td>@sv.Ma</td>
+                    <td>@sv.HoDem</td>
+                    <td>@sv.Ten</td>
+                    @switch (sv.GioiTinh)
+                    {
+                        case 1:
+                            <td>Nam</td>
+                            break;
+                        case 2:
+                            <td>Nữ</td>
+                            break;
+                        case 3:
+                            <td>Khác</td>
+                            break;
+                        default:
+                            break;
+                    }
+                    <td>@sv.LopHoc</td>
+                </tr>
+            }
+        </table>
+    </div>
+}
+else
+{
+    <label>@ViewBag.ThongBao</label>
+}

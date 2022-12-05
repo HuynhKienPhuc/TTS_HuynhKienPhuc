@@ -1,0 +1,12 @@
+D:\Thuc tap\Bai thuc hanh 1\TT.ASC.MNG\TT.ASC.DATA\bin\Debug\TT.ASC.DATA.dll
+D:\Thuc tap\Bai thuc hanh 1\TT.ASC.MNG\TT.ASC.DATA\bin\Debug\TT.ASC.DATA.pdb
+D:\Thuc tap\Bai thuc hanh 1\TT.ASC.MNG\TT.ASC.DATA\obj\Debug\TT.ASC.DATA.csproj.AssemblyReference.cache
+D:\Thuc tap\Bai thuc hanh 1\TT.ASC.MNG\TT.ASC.DATA\obj\Debug\TT.ASC.DATA.csproj.CoreCompileInputs.cache
+D:\Thuc tap\Bai thuc hanh 1\TT.ASC.MNG\TT.ASC.DATA\obj\Debug\TT.ASC.DATA.dll
+D:\Thuc tap\Bai thuc hanh 1\TT.ASC.MNG\TT.ASC.DATA\obj\Debug\TT.ASC.DATA.pdb
+D:\Thuc tap\Bai thuc hanh 2\TT.ASC.MNG\TT.ASC.DATA\bin\Debug\TT.ASC.DATA.dll
+D:\Thuc tap\Bai thuc hanh 2\TT.ASC.MNG\TT.ASC.DATA\bin\Debug\TT.ASC.DATA.pdb
+D:\Thuc tap\Bai thuc hanh 2\TT.ASC.MNG\TT.ASC.DATA\obj\Debug\TT.ASC.DATA.csproj.AssemblyReference.cache
+D:\Thuc tap\Bai thuc hanh 2\TT.ASC.MNG\TT.ASC.DATA\obj\Debug\TT.ASC.DATA.csproj.CoreCompileInputs.cache
+D:\Thuc tap\Bai thuc hanh 2\TT.ASC.MNG\TT.ASC.DATA\obj\Debug\TT.ASC.DATA.dll
+D:\Thuc tap\Bai thuc hanh 2\TT.ASC.MNG\TT.ASC.DATA\obj\Debug\TT.ASC.DATA.pdb

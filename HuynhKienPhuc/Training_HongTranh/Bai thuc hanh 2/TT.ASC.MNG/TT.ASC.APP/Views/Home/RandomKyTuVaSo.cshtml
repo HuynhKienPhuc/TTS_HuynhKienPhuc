@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "RandomKyTuVaSo";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h3>
+    Random chuỗi ký tự và số có chiều dài bất kỳ ( quy định được chiều dài chuỗi,
+    số lượng ký tự số trong chuỗi)
+</h3>
+<form action="/Home/RandomKyTuVaSo" method="post">
+    <label for="chieudai">Nhập vào chiều dài của chuỗi: </label>
+    <input type="text" name="chieudai" />&nbsp
+    <label for="sokytu">Nhập vào số ký tự số: </label>
+    <input type="number" name="sokytuso" min="0" />&nbsp
+    <input type="submit" value="Random" />
+</form>
+<br />
+<label>@ViewBag.ChieuDaiChuoi</label>
+<br />
+<label>@ViewBag.SoKyTuSo</label>
+<br />
+<label>@ViewBag.KetQua</label>
+

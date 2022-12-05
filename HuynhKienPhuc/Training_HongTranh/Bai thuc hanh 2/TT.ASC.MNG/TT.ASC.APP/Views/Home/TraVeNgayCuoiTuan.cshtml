@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "TraVeNgayCuoiTuan";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h3>Truyền vào ngày bất kì, trả về ngày cuối tuần</h3>
+<form action="/Home/TraVeNgayCuoiTuan" method="post">
+    <label for="ngaybatki">Chọn ngày bất kì: </label>
+    <input type="date" name="ngaybatki" />
+    <input type="submit" value="Xác nhận" />
+</form>
+<br />
+<label>@ViewBag.NgayDaChon</label>
+<br />
+<label>@ViewBag.KetQua</label>
+

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script  src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+</head>
+<body>
+    <h6>1. KẾT QUẢ TỰ ĐÁNH GIÁ</h6>   
+    <div class="phieu-danh-gia">
+        <div class="body-pdg">
+            <div class="questions">
+                <div diem-min="0" diem-max="10" class="question">
+                    <div class="wp-q">
+                        <div class="left" data-table="(10.00 điểm)">
+                            <p>1.1. Chính trị tư tưởng <label>(10,00 điểm)</label></p>
+                        </div>
+                        <div class="right">
+                            <div class="tu-danh-gia">
+                                <label>Tự đánh giá</label><br>
+                                <input class="diem-danh-gia" type="text">
+                            </div>                           
+                        </div>
+                    </div>                 
+                </div>
+    
+                <div diem-min="0" diem-max="10" class="question">
+                    <div class="wp-q">
+                        <div class="left" data-table="(10.00 điểm)">
+                            <p>1.2. Đạo đức, lối sống <label>(10,00 điểm)</label></p>
+                        </div>
+                        <div class="right">
+                            <div class="tu-danh-gia">
+                                <label>Tự đánh giá</label><br>
+                                <input class="diem-danh-gia" type="text">
+                            </div>                            
+                        </div>
+                    </div>
+                    <div class="answer">
+                        <textarea class="input-nhanxet" placeholder="Nhập nội dung..."></textarea>
+                    </div>
+                </div>
+    
+                <div class="question">
+                    <div class="wp-q">
+                        <div class="left">
+                            <p>1.3. Tác phong, lề lối làm việc</p>
+                        </div>
+                    </div>
+                    <div class="answer">
+                        <textarea class="input-nhanxet" placeholder="Nhập nội dung..."></textarea>
+                    </div>             
+                </div>
+    
+                <div class="question">
+                    <div class="wp-q">
+                        <div class="left">
+                            <p>1.4. Ý thức tổ chức kỷ luật</p>
+                        </div>
+                    </div>
+                    <div class="answer">
+                        <textarea class="input-nhanxet" placeholder="Nhập nội dung..."></textarea>
+                    </div>             
+                </div>
+    
+                <div class="question">
+                    <div class="wp-q">
+                        <div class="left">
+                            <p>1.5. Kết quả thực hiện chức trách, nhiệm vụ được giao 
+                            (xác định rõ nội dung công việc thực hiện; tỉ lệ hoàn thành, 
+                            chất lượng, tiến bộ công việc)</p>
+                        </div>
+                    </div>
+                    <div class="answer">
+                        <textarea class="input-nhanxet" placeholder="Nhập nội dung..."></textarea>
+                    </div>             
+                </div>
+    
+                <div class="question">
+                    <div class="wp-q">
+                        <div class="left">
+                            <p>1.6. Thái độ phục vụ nhân dân, doanh nghiệp (đối với 
+                                những vị trí tiếp xúc trực tiếp 
+                                hoặc gián tiếp giải quyết công việc của người dân và doanh nghiệp)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="answer">
+                        <textarea class="input-nhanxet" placeholder="Nhập nội dung..."></textarea>
+                    </div>             
+                </div>           
+            </div>       
+        </div>   
+    </div>
+    <div class="footer-pdg">
+        <button id="btnSave" class="btnSave">Lưu thay đổi</button>
+    </div>           
+</body>
+<script>
+    $(function(){
+        $('#btnSave').on('click', function(){
+            $('.questions .question .answer .input-nhanxet').each(function(){
+                var content = $(this).val();
+                if(content == ""){
+                    $(this).css({"border-color": "red"});
+                }
+                else{
+                    $(this).css({"border-color": "black"});
+                }
+            });
+
+            $('.questions .question').each(function(i, e){
+                var max = parseInt($(e).attr('diem-max'));
+                var min = parseInt($(e).attr('diem-min'));
+                var inputdiem = $(e).find('.diem-danh-gia');                
+                if(inputdiem.val() > max || inputdiem.val() < min || inputdiem.val() == ""){
+                    inputdiem.css({"border-color": "red"});
+                }
+                else{
+                    inputdiem.css({"border-color": "black"});
+                }                                     
+            });
+        });      
+    });
+</script>
+</html>

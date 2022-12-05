@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/e574adb07d.js" crossorigin="anonymous"></script>
+    <style>
+        body{
+            background-color: lightgray;
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            margin: 25px;
+            width: 93%;
+            height: 91vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container .child{
+            width: auto;
+            height: auto;
+            font-size: 17px;
+            background-color: white;
+            padding: 10px;
+        }
+        .container .child .header{
+            text-align: center;
+            color: lightgreen;
+            font-size: 30px;
+            font-family: monospace;
+            font-weight: bold;
+        }
+        .container .child .header .icon{
+            margin: 20px;
+        }
+        .container .child .content{
+            padding: 15px;
+        }
+        .container .child .footer{
+            border-top: 1px solid;
+            margin: 15px;
+            text-align: center;
+        }
+        .container .child .content .table{
+            text-align: center;
+            height: auto;
+            width: 100%;
+        }
+        .container .child .content .table table{
+            width: 100%;
+        }
+        .container .child .content .table tr th{
+            text-align: center;
+        }
+        .container .child .content .table .dongia{
+            text-align: right;
+        }
+        .container .child .content .table tr #mamh, #stt{
+            text-align: center;
+        }
+        .container .child .content .table tr .number{
+            text-align: right;
+        }
+        .container .child .content .table .tongtien{
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="child">                     
+            <div class="header">
+                <div class="icon">
+                     <i class="fa fa-solid fa-check"></i>
+                </div>                         
+                Xác nhận thanh toán thành công
+            </div>
+            <div class="content">
+                Xin chào, [TenSinhVien]<br>
+                <p>Đây là email thông báo rằng bạn đã thanh toán khoản thu 
+                thành công!</p>
+                <p>Chi tiết các khoản thu như sau:</p>
+                <div class="table">
+                    <table border="1">
+                        [ChiTietPhieuThu]
+                    </table>
+                </div>             
+                <p>Vui lòng kiểm tra công nợ trên trang sinh viên. Có thể sẽ mất một ngày để cập nhật
+                công nợ trên cổng thông tin sinh viên.</p>
+                <p>Trân trọng.</p>           
+            </div>
+            <div class="footer">
+                <p>Chúng tôi khuyên bạn nên giữ email này để tham khảo trong tương lai.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

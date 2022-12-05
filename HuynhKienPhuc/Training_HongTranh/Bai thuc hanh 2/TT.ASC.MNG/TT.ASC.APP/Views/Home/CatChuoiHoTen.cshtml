@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "CatChuoiHoTen";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h3>Tách ra họ và tên đệm khi một chuỗi họ tên được truyền vào</h3>
+<form action="/Home/CatChuoiHoTen" method="post">
+    <label form="chuoihoten">Nhập vào họ và tên: </label>
+    <input type="text" name="chuoihoten" />
+    <input type="submit" value="Xác nhận" />
+</form>
+<br />
+<label>@ViewBag.HoDem</label>
+<br />
+<label>@ViewBag.Ten</label>
+<br />
+<label>@ViewBag.ThongBao</label>
+

@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DocDaySoBatKi</title>
+    <style>
+        div {
+            text-align: center;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div>
+        <h2>Đọc dãy số bất kì</h2>
+        <form action="/Home/DocDaySoBatKi" method="post">
+            <label for="dayso">Nhập vào dãy số bất kì: </label>
+            <input type="text" name="dayso" />
+            <input type="submit" value="Xác nhận" />
+        </form>
+        <label>@ViewBag.DaySo</label><br />
+        <label>@ViewBag.KetQua</label>
+    </div>
+</body>
+</html>

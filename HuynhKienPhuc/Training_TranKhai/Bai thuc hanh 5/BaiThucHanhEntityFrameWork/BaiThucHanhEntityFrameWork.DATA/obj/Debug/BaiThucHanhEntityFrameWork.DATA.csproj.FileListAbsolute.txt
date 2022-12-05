@@ -1,0 +1,10 @@
+D:\Thuc tap\Bai thuc hanh 5\BaiThucHanhEntityFrameWork\BaiThucHanhEntityFrameWork.DATA\bin\Debug\BaiThucHanhEntityFrameWork.DATA.dll.config
+D:\Thuc tap\Bai thuc hanh 5\BaiThucHanhEntityFrameWork\BaiThucHanhEntityFrameWork.DATA\bin\Debug\BaiThucHanhEntityFrameWork.DATA.dll
+D:\Thuc tap\Bai thuc hanh 5\BaiThucHanhEntityFrameWork\BaiThucHanhEntityFrameWork.DATA\bin\Debug\BaiThucHanhEntityFrameWork.DATA.pdb
+D:\Thuc tap\Bai thuc hanh 5\BaiThucHanhEntityFrameWork\BaiThucHanhEntityFrameWork.DATA\bin\Debug\EntityFramework.dll
+D:\Thuc tap\Bai thuc hanh 5\BaiThucHanhEntityFrameWork\BaiThucHanhEntityFrameWork.DATA\bin\Debug\EntityFramework.xml
+D:\Thuc tap\Bai thuc hanh 5\BaiThucHanhEntityFrameWork\BaiThucHanhEntityFrameWork.DATA\obj\Debug\BaiThucHanhEntityFrameWork.DATA.csproj.AssemblyReference.cache
+D:\Thuc tap\Bai thuc hanh 5\BaiThucHanhEntityFrameWork\BaiThucHanhEntityFrameWork.DATA\obj\Debug\BaiThucHanhEntityFrameWork.DATA.csproj.CoreCompileInputs.cache
+D:\Thuc tap\Bai thuc hanh 5\BaiThucHanhEntityFrameWork\BaiThucHanhEntityFrameWork.DATA\obj\Debug\BaiThucHanhEntityFrameWork.DATA.csproj.CopyComplete
+D:\Thuc tap\Bai thuc hanh 5\BaiThucHanhEntityFrameWork\BaiThucHanhEntityFrameWork.DATA\obj\Debug\BaiThucHanhEntityFrameWork.DATA.dll
+D:\Thuc tap\Bai thuc hanh 5\BaiThucHanhEntityFrameWork\BaiThucHanhEntityFrameWork.DATA\obj\Debug\BaiThucHanhEntityFrameWork.DATA.pdb

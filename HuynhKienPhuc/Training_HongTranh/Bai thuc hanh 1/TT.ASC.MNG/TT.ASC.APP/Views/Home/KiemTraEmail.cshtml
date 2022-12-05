@@ -1,0 +1,31 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>KiemTraEmail</title>
+    <style>
+        div {
+            text-align: center;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div>
+        <h2>Kiểm tra tính đúng đắn của một địa chỉ email truyền vào</h2>
+        <form action="/Home/KiemTraEmail" method="post">
+            <label for="email">Nhập địa chỉ email để kiểm tra: </label>
+            <input type="text" name="email" />
+            <input type="submit" value="Kiểm tra" />
+        </form><br />
+        <label>@ViewBag.KetQua</label>
+    </div>
+</body>
+</html>

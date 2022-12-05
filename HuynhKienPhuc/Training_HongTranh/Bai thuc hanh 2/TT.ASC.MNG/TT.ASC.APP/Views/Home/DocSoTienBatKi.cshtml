@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "DocSoTienBatKi";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h3>Đọc số tiền bất kỳ</h3>
+<form action="/Home/DocSoTienBatKi" method="post">
+    <label for="sotien">Nhập vào số tiền: </label>
+    <input type="text" name="sotien" />
+    <input type="submit" value="Đọc" />
+</form>
+<br />
+<label>@ViewBag.SoTien</label>
+<br />
+<label>@ViewBag.KetQua</label>
+

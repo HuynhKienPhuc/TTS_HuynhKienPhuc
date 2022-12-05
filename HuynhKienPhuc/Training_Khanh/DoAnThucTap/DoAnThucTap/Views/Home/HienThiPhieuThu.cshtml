@@ -1,0 +1,318 @@
+﻿@using Kendo.Mvc.UI
+@using DoAnThucTap.ViewModel
+@{
+    ViewBag.Title = "HienThiPhieuThu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var result = Session["result"] as string;
+}
+<style>
+    .customTrue {
+        color: green;
+    }
+
+    .customFalse {
+        color: red;
+    }
+</style>
+<link href="~/Content/style.css" rel="stylesheet" />
+<h2>Phiếu thu</h2>
+<div class="tim-kiem">
+    <div class="input-timkiem">
+        <h4 class="title">Tìm kiếm phiếu thu</h4><br />
+        <label for="mssv">Mã số sinh viên: </label>
+        <input type="text" id="mssv" name="mssv" />
+        <label for="sophieu">Số phiếu: </label>
+        <input type="text" id="sophieu" name="sophieu" />
+        <label for="ngaybatdau">Từ ngày: </label>
+        <input type="datetime-local" id="ngaybatdau" name="ngaybatdau" />
+        <label for="ngayketthuc">Đến ngày: </label>
+        <input type="datetime-local" id="ngayketthuc" name="ngayketthuc" />
+        <label>Trạng thái phiếu thu: </label>
+        @(Html.Kendo().DropDownList()
+            .Name("kendodropdownlist")
+            .HtmlAttributes(new { style = "width:150px" })
+            .OptionLabel("Tất cả")
+            .Height(200)
+            .DataSource(source =>
+            {
+                source.Read(read =>
+                {
+                    read.Action("GetTrangThai", "Home");
+                });
+            })
+            .Events(e => e
+                .Change("onChange")
+                )
+            .SelectedIndex(2)
+        )
+    </div>
+    <div class="btn-timkiem">
+        <input type="button" class="btn btn-primary" id="btnTimKiem" value="Tìm kiếm" />
+    </div>
+</div>
+<div class="grid">
+
+    <script type="text/javascript">
+        var rowNumber = 0;
+
+        function resetRowNumber(e) {
+            rowNumber = 0;
+        }
+
+        function renderNumber(data) {
+            return ++rowNumber;
+        }
+
+        function renderRecordNumber(data) {
+            var page = parseInt($("#grid").data("kendoGrid").dataSource.page()) - 1;
+            var pagesize = $("#grid").data("kendoGrid").dataSource.pageSize();
+            return parseInt(rowNumber + (parseInt(page) * parseInt(pagesize)));
+        }
+
+        function templateFunction(item) {
+
+            if (item.trangThai == "Giao dịch đã hủy") {
+                return "<span class='customFalse'>" + item.trangThai + "</span>";
+            }
+            else {
+                return "<span class='customTrue'>" + item.trangThai + "</span>";
+            }
+
+            return item.trangThai;
+        }
+
+        function onChange() {
+            var trangThai = $("#kendodropdownlist").data("kendoDropDownList").value();
+            if (trangThai != "Tất cả") {
+                $(function () {
+                    $.ajax({
+                        type: "POST",
+                        url: "@Url.Action("GetPhieuThuByTrangThai", "Home")",
+                        data: { pTrangThai: "%" + trangThai + "%" },
+                        success: function (result) {
+                            $('#grid').data("kendoGrid").dataSource.data(result);
+                        }
+                    });
+                });
+            }
+            else {
+                $(function () {
+                    $.ajax({
+                        type: "POST",
+                        url: "@Url.Action("GetPhieuThuByTrangThai", "Home")",
+                        data: { pTrangThai: "%%" },
+                        success: function (result) {
+                            $('#grid').data("kendoGrid").dataSource.data(result);
+                        }
+                    });
+                });
+            }
+
+        }
+    </script>
+    @(Html.Kendo().Grid<DoAnThucTap.ViewModel.PhieuThu>()
+        .Name("grid")
+        .Columns(columns =>
+        {
+            columns.Template(p => { }).Title("STT").ClientTemplate("#= renderNumber(data) #").Hidden();
+            columns.Template(p => { }).Title("STT").ClientTemplate("#= renderRecordNumber(data) #")
+                    .HtmlAttributes(new { style = "text-align:center" })
+                    .Width(50).HeaderHtmlAttributes(new { style = "text-align:center" });
+            columns.Bound(c => c.soPhieu).Title("Số phiếu")
+                    .HeaderHtmlAttributes(new { style = "text-align:center" })
+                    .HtmlAttributes(new { style = "text-align:center" });
+            columns.Bound(c => c.Mssv).Title("Mã sinh viên")
+                    .HeaderHtmlAttributes(new { style = "text-align:center" })
+                    .HtmlAttributes(new { style = "text-align:center" });
+            columns.Bound(c => c.hoTenSV).Title("Họ tên")
+                    .HeaderHtmlAttributes(new { style = "text-align:center" });
+            columns.Bound(c => c.matKhau).Title("Mật khẩu")
+                    .HeaderHtmlAttributes(new { style = "text-align:center" });
+            columns.Bound(c => c.noiDung).Title("Nội dung thu")
+                    .Width(150)
+                    .HeaderHtmlAttributes(new { style = "text-align:center" });
+            columns.Bound(c => c.ngayThanhToan).ClientTemplate("#= kendo.toString(kendo.parseDate(ngayThanhToan), 'dd-MM-yyyy hh:mm:ss tt') #")
+                    .Title("Ngày thanh toán").Width(180)
+                    .HtmlAttributes(new { style = "text-align:center" })
+                    .HeaderHtmlAttributes(new { style = "text-align:center" });
+            columns.Bound(c => c.soTienThu).Format("{0:0,0}").Title("Số tiền thu")
+                    .HtmlAttributes(new { style = "text-align:right" })
+                    .HeaderHtmlAttributes(new { style = "text-align:center" });
+            columns.Bound(c => c.donViThu).Title("Đơn vị thu")
+                    .HeaderHtmlAttributes(new { style = "text-align:center" });
+            columns.Bound(c => c.trangThai).ClientTemplate("#=templateFunction(data)#").Title("Trạng thái")
+                    .HeaderHtmlAttributes(new { style = "text-align:center" });
+        }
+        )
+        .HtmlAttributes(new {style = "height:400px;font-size:15px"})
+        .Sortable()
+        .Groupable()
+        .ToolBar(tools => tools.Excel()
+        )
+        .Excel(excel => excel
+            .FileName("Danh sach phieu thu.xlsx")
+            .Filterable(true)
+            .ProxyURL(Url.Action("Excel_Export_Save", "Home"))
+            .AllPages(true)
+        )
+        .Scrollable()
+        .ClientDetailTemplateId("chitiet")
+        .Selectable(selectable => selectable.Mode(GridSelectionMode.Single))
+        .Pageable()
+        .DataSource(dataSource => dataSource.Ajax().Read(read => read.Action("GetAllPhieuThu", "Home"))
+        .PageSize(3).Model(model => model.Id(p => p.soPhieu))
+        )
+        .Events(events => events.DataBound("resetRowNumber"))
+    )
+
+    <script id="chitiet" type="text/kendo-tmpl">
+        @(Html.Kendo().Grid<DoAnThucTap.ViewModel.ChiTietPhieuThu>()
+                .Name("chitietphieuthu_#=soPhieu#")
+                .Columns(columns =>
+                {
+                    columns.Bound(o => o.STT).Title("STT")
+                        .HtmlAttributes(new { style = "text-align:center" })
+                        .Width(50).HeaderHtmlAttributes(new { style = "text-align:center" });
+                    columns.Bound(o => o.MaMH).Title("Mã")
+                        .HeaderHtmlAttributes(new { style = "text-align:center" })
+                        .HtmlAttributes(new { style = "text-align:center" });
+                    columns.Bound(o => o.TenMH).Title("Tên môn học")
+                        .HeaderHtmlAttributes(new { style = "text-align:center" });
+                    columns.Bound(o => o.DonGia).Title("Đơn giá").Format("{0:n3}")
+                        .HeaderHtmlAttributes(new { style = "text-align:center" })
+                        .HtmlAttributes(new { style = "text-align:right" });
+                })
+                .Pageable()
+                .Navigatable()
+                .Sortable()
+                .DataSource(dataSource => dataSource
+                    .Ajax()
+                    .PageSize(10)
+                    .Read(read => read.Action("GetChiTietPhieuThu", "Home", new { pSoPhieu = "#=soPhieu#" }))
+
+                )
+                .ToClientTemplate()
+            )
+    </script>
+
+    <div class="btn-guimail">
+        <input type="button" class="btn btn-success" id="btnGuiMail" value="Gửi mail" />
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        //xử lý sự kiện cho nút Gửi mail
+        $('#btnGuiMail').on('click', function () {
+            var grid = $("#grid").data("kendoGrid"); //lấy dữ liệu grid
+            let selected = grid.select(); //lấy dòng đang được chọn
+            if (selected.length === 0) {
+                kendo.alert("Vui lòng chọn phiếu thu trước khi gửi mail");
+            }
+            else {
+                var selectedItem = grid.dataItem(grid.select()); //lấy dữ liệu của dòng được chọn
+                var Mssv = selectedItem.Mssv; //lấy dữ liệu ở cột Mssv
+                var hoTenSV = selectedItem.hoTenSV; //lấy dữ liệu ở cột hoTenSV
+                var soPhieu = selectedItem.soPhieu;
+                $.ajax({
+                type: "POST",
+                    url: "@Url.Action("SendMail", "Home")",
+                    data: { pMssv: Mssv, pHotensv: hoTenSV, pSophieu: soPhieu },
+                    success: function () {
+                        kendo.alert('Gửi mail thành công!')
+                    },
+                    error: function () {
+                        kendo.alert('Gửi mail thất bại!')
+                    }
+                });
+            }
+        });
+        //xử lý sự kiện cho nút Tìm kiếm
+        $('#btnTimKiem').on('click', function () {
+            var Mssv = $('#mssv').val();
+            var soPhieu = $('#sophieu').val();
+            var ngayBatDau = $('#ngaybatdau').val();
+            var ngayKetThuc = $('#ngayketthuc').val();
+
+            if (Mssv != "" && soPhieu != "" && ngayBatDau != "" && ngayKetThuc != "") {
+                $.ajax({
+                    type: "POST",
+                    url: "@Url.Action("GetPhieuThuByAll", "Home")",
+                    data: { pMssv: Mssv, pSophieu: soPhieu, pNgaybatdau: ngayBatDau, pNgayketthuc: ngayKetThuc },
+                    dataType: "json",
+                    success: function (result) {
+                        $('#grid').data("kendoGrid").dataSource.data(result);
+                    }
+                }
+                );
+            }
+            else {
+                if (Mssv != "" && soPhieu != "") {
+                    $.ajax({
+                        type: "POST",
+                        url: "@Url.Action("GetPhieuThuByMasvAndSoPhieu", "Home")",
+                        data: { pMssv: Mssv , pSophieu: soPhieu},
+                        success: function (result) {
+                            $('#grid').data("kendoGrid").dataSource.data(result);
+                        }
+                    }
+                    );
+                }
+                else {
+                    if (Mssv != "") {
+                        $.ajax({
+                        type: "POST",
+                        url: "@Url.Action("GetPhieuThuByMaSV", "Home")",
+                        data: { pMssv: Mssv },
+                        dataType: "json",
+                            success: function (result) {
+                                $('#grid').data("kendoGrid").dataSource.data(result);
+                            }
+                        }
+                        );
+                    }
+                    else if (soPhieu != "") {
+                        $.ajax({
+                        type: "POST",
+                        url: "@Url.Action("GetPhieuThuBySoPhieu", "Home")",
+                        data: { pSophieu: soPhieu },
+                            success: function (result) {
+                                $('#grid').data("kendoGrid").dataSource.data(result);
+                            }
+                        }
+                        );
+                    }
+                    else {
+                        if (ngayBatDau != "" && ngayKetThuc != "") {
+                            if (ngayBatDau <= ngayKetThuc) {
+                                $.ajax({
+                                    type: "POST",
+                                    url: "@Url.Action("GetPhieuThuByNgayThanhToan", "Home")",
+                                    data: { pNgaybatdau: ngayBatDau, pNgayketthuc: ngayKetThuc },
+                                    success: function (result) {
+                                        $('#grid').data("kendoGrid").dataSource.data(result);
+                                    }
+                                }
+                                );
+                            }
+                            else {
+                                alert('Ngày bắt đầu phải nhỏ hơn hoặc bằng ngày kết thúc!');
+                            }
+                        }
+                        else {
+                            //alert('Ngày bắt đầu và ngày kết thúc không được để trống!');
+                            $.ajax({
+                                type: "POST",
+                                url: "@Url.Action("GetPhieuThuByTrangThai", "Home")",
+                                data: { pTrangThai: "%%" },
+                                success: function (result) {
+                                    $('#grid').data("kendoGrid").dataSource.data(result);
+                                }
+                            });
+                        }
+                    }
+                }
+            }
+        });
+    });
+
+</script>

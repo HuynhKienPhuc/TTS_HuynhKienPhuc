@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ThucTap_DoAnModelStoreContainer" CdmEntityContainer="ThucTap_DoAnEntities">
+    <EntitySetMapping Name="TBL_ChiTietPhieuThu">
+      <EntityTypeMapping TypeName="ThucTap_DoAnModel.TBL_ChiTietPhieuThu">
+        <MappingFragment StoreEntitySet="TBL_ChiTietPhieuThu">
+          <ScalarProperty Name="SoPhieu" ColumnName="SoPhieu" />
+          <ScalarProperty Name="MaMH" ColumnName="MaMH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_KhoanThuMonHoc">
+      <EntityTypeMapping TypeName="ThucTap_DoAnModel.TBL_KhoanThuMonHoc">
+        <MappingFragment StoreEntitySet="TBL_KhoanThuMonHoc">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MaMH" ColumnName="MaMH" />
+          <ScalarProperty Name="TenMH" ColumnName="TenMH" />
+          <ScalarProperty Name="SoTC" ColumnName="SoTC" />
+          <ScalarProperty Name="SoTiet" ColumnName="SoTiet" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_PhieuThu">
+      <EntityTypeMapping TypeName="ThucTap_DoAnModel.TBL_PhieuThu">
+        <MappingFragment StoreEntitySet="TBL_PhieuThu">
+          <ScalarProperty Name="SoPhieu" ColumnName="SoPhieu" />
+          <ScalarProperty Name="Mssv" ColumnName="Mssv" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="NgayThanhToan" ColumnName="NgayThanhToan" />
+          <ScalarProperty Name="SoTienThu" ColumnName="SoTienThu" />
+          <ScalarProperty Name="DonViThu" ColumnName="DonViThu" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_SinhVien">
+      <EntityTypeMapping TypeName="ThucTap_DoAnModel.TBL_SinhVien">
+        <MappingFragment StoreEntitySet="TBL_SinhVien">
+          <ScalarProperty Name="Mssv" ColumnName="Mssv" />
+          <ScalarProperty Name="Hoten" ColumnName="Hoten" />
+          <ScalarProperty Name="Gioitinh" ColumnName="Gioitinh" />
+          <ScalarProperty Name="Ngaysinh" ColumnName="Ngaysinh" />
+          <ScalarProperty Name="Lophoc" ColumnName="Lophoc" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_ThanhToan">
+      <EntityTypeMapping TypeName="ThucTap_DoAnModel.TBL_ThanhToan">
+        <MappingFragment StoreEntitySet="TBL_ThanhToan">
+          <ScalarProperty Name="Idtt" ColumnName="Idtt" />
+          <ScalarProperty Name="Mssv" ColumnName="Mssv" />
+          <ScalarProperty Name="SoPhieu" ColumnName="SoPhieu" />
+          <ScalarProperty Name="SoThe" ColumnName="SoThe" />
+          <ScalarProperty Name="TenThe" ColumnName="TenThe" />
+          <ScalarProperty Name="So" ColumnName="So" />
+          <ScalarProperty Name="NgayHetHan" ColumnName="NgayHetHan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_DangKy">
+      <EntityTypeMapping TypeName="ThucTap_DoAnModel.TBL_DangKy">
+        <MappingFragment StoreEntitySet="TBL_DangKy">
+          <ScalarProperty Name="MaDangKy" ColumnName="MaDangKy" />
+          <ScalarProperty Name="Mssv" ColumnName="Mssv" />
+          <ScalarProperty Name="HocKi" ColumnName="HocKi" />
+          <ScalarProperty Name="NgayDK" ColumnName="NgayDK" />
+          <ScalarProperty Name="MaMH" ColumnName="MaMH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionName="ThucTap_DoAnModel.Store.GetDangKySinhVien" FunctionImportName="GetDangKySinhVien">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ThucTap_DoAnModel.GetDangKySinhVien_Result">
+          <ScalarProperty Name="MaMH" ColumnName="MaMH" />
+          <ScalarProperty Name="TenMH" ColumnName="TenMH" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+          <ScalarProperty Name="NgayDK" ColumnName="NgayDK" />
+          <ScalarProperty Name="SoTC" ColumnName="SoTC" />
+          <ScalarProperty Name="HocKi" ColumnName="HocKi" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="ThucTap_DoAnModel.Store.GetTBLSoPhieu_CT" FunctionImportName="GetTBLSoPhieu_CT">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ThucTap_DoAnModel.GetTBLSoPhieu_CT_Result">
+          <ScalarProperty Name="MaMH" ColumnName="MaMH" />
+          <ScalarProperty Name="TenMH" ColumnName="TenMH" />
+          <ScalarProperty Name="SoTC" ColumnName="SoTC" />
+          <ScalarProperty Name="SoTiet" ColumnName="SoTiet" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+          <ScalarProperty Name="HocKi" ColumnName="HocKi" />
+          <ScalarProperty Name="NgayDK" ColumnName="NgayDK" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_ChiTietPhieuThu" FunctionName="ThucTap_DoAnModel.Store.sp_ChiTietPhieuThu">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ThucTap_DoAnModel.sp_ChiTietPhieuThu_Result">
+          <ScalarProperty Name="SoPhieu" ColumnName="SoPhieu" />
+          <ScalarProperty Name="MaMH" ColumnName="MaMH" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_ChiTietPhieuThuIn_PDF" FunctionName="ThucTap_DoAnModel.Store.sp_ChiTietPhieuThuIn_PDF">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ThucTap_DoAnModel.sp_ChiTietPhieuThuIn_PDF_Result">
+          <ScalarProperty Name="SoPhieu" ColumnName="SoPhieu" />
+          <ScalarProperty Name="MaMH" ColumnName="MaMH" />
+          <ScalarProperty Name="Mssv" ColumnName="Mssv" />
+          <ScalarProperty Name="Hoten" ColumnName="Hoten" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_DanhSachQuanLyThu" FunctionName="ThucTap_DoAnModel.Store.sp_DanhSachQuanLyThu">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ThucTap_DoAnModel.sp_DanhSachQuanLyThu_Result">
+          <ScalarProperty Name="SoPhieu" ColumnName="SoPhieu" />
+          <ScalarProperty Name="Mssv" ColumnName="Mssv" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="SoTienThu" ColumnName="SoTienThu" />
+          <ScalarProperty Name="NgayThanhToan" ColumnName="NgayThanhToan" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Delete_KhoanThu" FunctionName="ThucTap_DoAnModel.Store.sp_Delete_KhoanThu" />
+    <FunctionImportMapping FunctionImportName="sp_DeletePhieuThu" FunctionName="ThucTap_DoAnModel.Store.sp_DeletePhieuThu" />
+    <FunctionImportMapping FunctionImportName="sp_GetAllPhieuThu" FunctionName="ThucTap_DoAnModel.Store.sp_GetAllPhieuThu">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ThucTap_DoAnModel.sp_GetAllPhieuThu_Result">
+          <ScalarProperty Name="SoPhieu" ColumnName="SoPhieu" />
+          <ScalarProperty Name="Mssv" ColumnName="Mssv" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="NgayThanhToan" ColumnName="NgayThanhToan" />
+          <ScalarProperty Name="SoTienThu" ColumnName="SoTienThu" />
+          <ScalarProperty Name="DonViThu" ColumnName="DonViThu" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetDonGiaByMaMH" FunctionName="ThucTap_DoAnModel.Store.sp_GetDonGiaByMaMH" />
+    <FunctionImportMapping FunctionImportName="sp_GetEmailSinhVien" FunctionName="ThucTap_DoAnModel.Store.sp_GetEmailSinhVien" />
+    <FunctionImportMapping FunctionImportName="sp_GetPhieuThuByAll" FunctionName="ThucTap_DoAnModel.Store.sp_GetPhieuThuByAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ThucTap_DoAnModel.sp_GetPhieuThuByAll_Result">
+          <ScalarProperty Name="SoPhieu" ColumnName="SoPhieu" />
+          <ScalarProperty Name="Mssv" ColumnName="Mssv" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="NgayThanhToan" ColumnName="NgayThanhToan" />
+          <ScalarProperty Name="SoTienThu" ColumnName="SoTienThu" />
+          <ScalarProperty Name="DonViThu" ColumnName="DonViThu" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetPhieuThuByMaSV" FunctionName="ThucTap_DoAnModel.Store.sp_GetPhieuThuByMaSV">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ThucTap_DoAnModel.sp_GetPhieuThuByMaSV_Result">
+          <ScalarProperty Name="SoPhieu" ColumnName="SoPhieu" />
+          <ScalarProperty Name="Mssv" ColumnName="Mssv" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="NgayThanhToan" ColumnName="NgayThanhToan" />
+          <ScalarProperty Name="SoTienThu" ColumnName="SoTienThu" />
+          <ScalarProperty Name="DonViThu" ColumnName="DonViThu" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetPhieuThuByMasvAndSoPhieu" FunctionName="ThucTap_DoAnModel.Store.sp_GetPhieuThuByMasvAndSoPhieu">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ThucTap_DoAnModel.sp_GetPhieuThuByMasvAndSoPhieu_Result">
+          <ScalarProperty Name="SoPhieu" ColumnName="SoPhieu" />
+          <ScalarProperty Name="Mssv" ColumnName="Mssv" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="NgayThanhToan" ColumnName="NgayThanhToan" />
+          <ScalarProperty Name="SoTienThu" ColumnName="SoTienThu" />
+          <ScalarProperty Name="DonViThu" ColumnName="DonViThu" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetPhieuThuByNgayThanhToan" FunctionName="ThucTap_DoAnModel.Store.sp_GetPhieuThuByNgayThanhToan">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ThucTap_DoAnModel.sp_GetPhieuThuByNgayThanhToan_Result">
+          <ScalarProperty Name="SoPhieu" ColumnName="SoPhieu" />
+          <ScalarProperty Name="Mssv" ColumnName="Mssv" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="NgayThanhToan" ColumnName="NgayThanhToan" />
+          <ScalarProperty Name="SoTienThu" ColumnName="SoTienThu" />
+          <ScalarProperty Name="DonViThu" ColumnName="DonViThu" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetPhieuThuBySoPhieu" FunctionName="ThucTap_DoAnModel.Store.sp_GetPhieuThuBySoPhieu">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ThucTap_DoAnModel.sp_GetPhieuThuBySoPhieu_Result">
+          <ScalarProperty Name="SoPhieu" ColumnName="SoPhieu" />
+          <ScalarProperty Name="Mssv" ColumnName="Mssv" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="NgayThanhToan" ColumnName="NgayThanhToan" />
+          <ScalarProperty Name="SoTienThu" ColumnName="SoTienThu" />
+          <ScalarProperty Name="DonViThu" ColumnName="DonViThu" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetPhieuThuByTrangThai" FunctionName="ThucTap_DoAnModel.Store.sp_GetPhieuThuByTrangThai">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ThucTap_DoAnModel.sp_GetPhieuThuByTrangThai_Result">
+          <ScalarProperty Name="SoPhieu" ColumnName="SoPhieu" />
+          <ScalarProperty Name="Mssv" ColumnName="Mssv" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="NgayThanhToan" ColumnName="NgayThanhToan" />
+          <ScalarProperty Name="SoTienThu" ColumnName="SoTienThu" />
+          <ScalarProperty Name="DonViThu" ColumnName="DonViThu" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetSinhVien" FunctionName="ThucTap_DoAnModel.Store.sp_GetSinhVien">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ThucTap_DoAnModel.sp_GetSinhVien_Result">
+          <ScalarProperty Name="Mssv" ColumnName="Mssv" />
+          <ScalarProperty Name="Hoten" ColumnName="Hoten" />
+          <ScalarProperty Name="Gioitinh" ColumnName="Gioitinh" />
+          <ScalarProperty Name="Ngaysinh" ColumnName="Ngaysinh" />
+          <ScalarProperty Name="Lophoc" ColumnName="Lophoc" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetTenMonHocByMaMH" FunctionName="ThucTap_DoAnModel.Store.sp_GetTenMonHocByMaMH" />
+    <FunctionImportMapping FunctionImportName="sp_GetTrangThai" FunctionName="ThucTap_DoAnModel.Store.sp_GetTrangThai" />
+    <FunctionImportMapping FunctionImportName="sp_Insert_KhoanThu" FunctionName="ThucTap_DoAnModel.Store.sp_Insert_KhoanThu" />
+    <FunctionImportMapping FunctionImportName="sp_KhoanThu" FunctionName="ThucTap_DoAnModel.Store.sp_KhoanThu">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ThucTap_DoAnModel.sp_KhoanThu_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MaMH" ColumnName="MaMH" />
+          <ScalarProperty Name="TenMH" ColumnName="TenMH" />
+          <ScalarProperty Name="SoTC" ColumnName="SoTC" />
+          <ScalarProperty Name="SoTiet" ColumnName="SoTiet" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_SinhVien" FunctionName="ThucTap_DoAnModel.Store.sp_SinhVien" />
+    <FunctionImportMapping FunctionImportName="sp_TrangThai" FunctionName="ThucTap_DoAnModel.Store.sp_TrangThai" />
+    <FunctionImportMapping FunctionImportName="sp_Update_KhoanThu" FunctionName="ThucTap_DoAnModel.Store.sp_Update_KhoanThu" />
+    <FunctionImportMapping FunctionImportName="sp_Get_SinhVien" FunctionName="ThucTap_DoAnModel.Store.sp_GetSinhVien" />
+    <FunctionImportMapping FunctionImportName="sp_Get_EmailSinhVien" FunctionName="ThucTap_DoAnModel.Store.sp_GetEmailSinhVien" />
+    <FunctionImportMapping FunctionImportName="sp_Get_ChiTietPhieuThu" FunctionName="ThucTap_DoAnModel.Store.sp_ChiTietPhieuThu" />
+    <FunctionImportMapping FunctionImportName="sp_Get_TenMonHocByMaMH" FunctionName="ThucTap_DoAnModel.Store.sp_GetTenMonHocByMaMH" />
+    <FunctionImportMapping FunctionImportName="sp_Get_DonGiaByMaMH" FunctionName="ThucTap_DoAnModel.Store.sp_GetDonGiaByMaMH" />
+    <FunctionImportMapping FunctionImportName="sp_GetAllPhieu_Thu" FunctionName="ThucTap_DoAnModel.Store.sp_GetAllPhieuThu" />
+    <FunctionImportMapping FunctionImportName="sp_Get_TrangThai" FunctionName="ThucTap_DoAnModel.Store.sp_GetTrangThai" />
+    <FunctionImportMapping FunctionImportName="sp_Get_PhieuThuByMaSV" FunctionName="ThucTap_DoAnModel.Store.sp_GetPhieuThuByMaSV" />
+    <FunctionImportMapping FunctionImportName="sp_Get_PhieuThuBySoPhieu" FunctionName="ThucTap_DoAnModel.Store.sp_GetPhieuThuBySoPhieu" />
+    <FunctionImportMapping FunctionImportName="sp_Get_PhieuThuByNgayThanhToan" FunctionName="ThucTap_DoAnModel.Store.sp_GetPhieuThuByNgayThanhToan" />
+    <FunctionImportMapping FunctionImportName="sp_Get_PhieuThuByMasvAndSoPhieu" FunctionName="ThucTap_DoAnModel.Store.sp_GetPhieuThuByMasvAndSoPhieu" />
+    <FunctionImportMapping FunctionImportName="sp_Get_PhieuThuByAll" FunctionName="ThucTap_DoAnModel.Store.sp_GetPhieuThuByAll" />
+    <FunctionImportMapping FunctionImportName="sp_Get_PhieuThuByTrangThai" FunctionName="ThucTap_DoAnModel.Store.sp_GetPhieuThuByTrangThai" />
+  </EntityContainerMapping>
+</Mapping>

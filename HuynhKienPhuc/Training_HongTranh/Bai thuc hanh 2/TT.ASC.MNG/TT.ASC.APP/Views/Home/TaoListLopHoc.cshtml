@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "TaoListLopHoc";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@using TT.ASC.DATA
+@model List<LopHoc>
+
+<h3>Tạo danh sách lớp học ngẫu nhiên</h3>
+<form action="/Home/TaoListLopHoc" method="post">
+    <label for="soluong">Nhập số lượng lớp học: </label>
+    <input type="number" name="soluong" value="1" min="1" />
+    <input type="submit" value="Tạo" />
+</form>
+@if (Model != null)
+{
+    <h4>Số lượng lớp học: @Model.Count</h4>
+    <div>
+        <table border="1" class="table table-hover">
+            <tr>
+                <th>ID</th>
+                <th>Mã lớp</th>
+                <th>Tên lớp</th>
+                <th>Số lượng</th>
+                <th>Năm mở lớp</th>
+                <th>Cơ sở đào tạo</th>
+                <th>Hiển thị</th>
+            </tr>
+            @foreach(var lopHoc in Model)
+             {
+                <tr>
+                    <td>@lopHoc.ID</td>
+                    <td>@lopHoc.Ma</td>
+                    <td>@lopHoc.TenLop</td>
+                    <td>@lopHoc.SoLuong</td>
+                    <td>@lopHoc.NamMoLop</td>
+                    <td>@lopHoc.CoSoDaoTao</td>
+                    <td>@lopHoc.HienThi</td>
+                </tr>
+             }
+        </table>
+    </div>
+}
+else
+{
+    <label>@ViewBag.ThongBao</label>
+}

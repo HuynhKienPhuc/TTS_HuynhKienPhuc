@@ -1,0 +1,58 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>TraVeNgayDauTien</title>
+    <style>
+        div {
+            text-align: center;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div>
+        <h2>Truyền vào Tháng và Năm, trả về ngày đầu tiên của tháng</h2>
+        <form action="/Home/TraVeNgayDauTien" method="post">
+            <label for="thang">Tháng: </label>
+            <select name="thang" id="thang"></select>
+            <label for="nam">Năm: </label>
+            <select id="nam" name="nam"></select>
+            <input type="submit" value="Xác nhận" />
+        </form><br />
+        <label>@ViewBag.Thang</label><br />
+        <label>@ViewBag.Nam</label><br />
+        <label>@ViewBag.NgayDauTien</label>
+    </div>
+
+    <script type="text/javascript">
+        window.onload = function () {
+            var thang = document.getElementById("thang");
+
+            for (var i = 1; i <= 12; i++) {
+                var option = document.createElement("OPTION");
+                option.innerHTML = i;
+                option.value = i;
+                thang.appendChild(option);
+            }
+
+            var nam = document.getElementById("nam");
+            var namhientai = (new Date()).getFullYear();
+
+            for (var i = 1950; i <= namhientai; i++) {
+                var option = document.createElement("OPTION");
+                option.innerHTML = i;
+                option.value = i;
+                nam.appendChild(option);
+            }
+        }
+    </script>
+</body>
+</html>

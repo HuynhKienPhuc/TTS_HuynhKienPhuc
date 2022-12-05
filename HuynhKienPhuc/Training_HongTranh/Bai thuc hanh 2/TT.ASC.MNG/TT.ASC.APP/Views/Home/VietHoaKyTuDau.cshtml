@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "VietHoaKyTuDau";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h3>Viết hoa đầu mỗi ký tự đâu tiên theo tên được truyền vào</h3>
+<form action="/Home/VietHoaKyTuDau" method="post">
+    <label for="chuoi">Nhập vào chuỗi dữ liệu: </label>
+    <input type="text" name="chuoi" />
+    <input type="submit" value="Xác nhận" />
+</form>
+<br />
+<label>@ViewBag.ChuoiVietHoa</label>
+<br />
+<label>@ViewBag.ThongBao</label>
+

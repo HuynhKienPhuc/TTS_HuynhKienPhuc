@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "DocDaySoBatKi";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h3>Đọc dãy số bất kì</h3>
+<form action="/Home/DocDaySoBatKi" method="post">
+    <label for="dayso">Nhập vào dãy số bất kì: </label>
+    <input type="text" name="dayso" />
+    <input type="submit" value="Xác nhận" />
+</form>
+<label>@ViewBag.DaySo</label>
+<br />
+<label>@ViewBag.KetQua</label>
+

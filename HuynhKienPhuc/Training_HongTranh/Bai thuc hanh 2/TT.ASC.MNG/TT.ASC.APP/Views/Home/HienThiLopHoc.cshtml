@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "HienThiLopHoc";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@using TT.ASC.DATA
+@model List<LopHoc>
+
+<h2>Danh sách lớp học</h2>
+@if (Model != null)
+{
+    <h4>Số lượng lớp học: @Model.Count</h4>
+    <div>
+        <table border="1" class="table table-hover">
+            <tr>
+                <th>ID</th>
+                <th>Mã lớp</th>
+                <th>Tên lớp</th>
+                <th>Số lượng</th>
+                <th>Năm mở lớp</th>
+                <th>Cơ sở đào tạo</th>
+                <th>Hiển thị</th>
+            </tr>
+            @foreach (var lopHoc in Model)
+            {
+                <tr>
+                    <td><a href="/Home/HTSinhVienTheoLop?id=@lopHoc.ID">@lopHoc.ID</a></td>
+                    <td>@lopHoc.Ma</td>
+                    <td>@lopHoc.TenLop</td>
+                    <td>@lopHoc.SoLuong</td>
+                    <td>@lopHoc.NamMoLop</td>
+                    <td>@lopHoc.CoSoDaoTao</td>
+                    <td>@lopHoc.HienThi</td>
+                </tr>
+            }
+        </table>
+    </div>
+}
+else
+{
+    <label>@ViewBag.ThongBao</label>
+}

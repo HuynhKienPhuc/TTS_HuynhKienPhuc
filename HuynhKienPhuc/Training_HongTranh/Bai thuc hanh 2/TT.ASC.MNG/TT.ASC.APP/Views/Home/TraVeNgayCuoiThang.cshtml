@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "TraVeNgayCuoiThang";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div>
+    <h3>Viết hàm truyền vào Tháng và Năm, trả về ngày cuối tháng</h3>
+    <form action="/Home/TraVeNgayCuoiThang" method="post">
+        <label for="thang">Tháng: </label>
+        <select name="thang" id="thang"></select>
+        <label for="nam">Năm: </label>
+        <select id="nam" name="nam"></select>
+        <input type="submit" value="Xác nhận" />
+    </form><br />
+    <label>@ViewBag.Thang</label><br />
+    <label>@ViewBag.Nam</label><br />
+    <label>@ViewBag.NgayCuoiThang</label>
+</div>
+
+<script type="text/javascript">
+        window.onload = function () {
+            var thang = document.getElementById("thang");
+
+            for (var i = 1; i <= 12; i++) {
+                var option = document.createElement("OPTION");
+                option.innerHTML = i;
+                option.value = i;
+                thang.appendChild(option);
+            }
+
+            var nam = document.getElementById("nam");
+            var namhientai = (new Date()).getFullYear();
+
+            for (var i = 1990; i <= namhientai; i++) {
+                var option = document.createElement("OPTION");
+                option.innerHTML = i;
+                option.value = i;
+                nam.appendChild(option);
+            }
+        }
+</script>
+

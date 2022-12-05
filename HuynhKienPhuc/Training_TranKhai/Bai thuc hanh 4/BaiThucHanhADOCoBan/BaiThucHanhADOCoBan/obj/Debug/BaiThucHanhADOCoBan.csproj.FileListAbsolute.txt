@@ -1,0 +1,11 @@
+D:\Thuc tap\Bai thuc hanh 4\BaiThucHanhADOCoBan\BaiThucHanhADOCoBan\bin\Debug\BaiThucHanhADOCoBan.exe.config
+D:\Thuc tap\Bai thuc hanh 4\BaiThucHanhADOCoBan\BaiThucHanhADOCoBan\bin\Debug\BaiThucHanhADOCoBan.exe
+D:\Thuc tap\Bai thuc hanh 4\BaiThucHanhADOCoBan\BaiThucHanhADOCoBan\bin\Debug\BaiThucHanhADOCoBan.pdb
+D:\Thuc tap\Bai thuc hanh 4\BaiThucHanhADOCoBan\BaiThucHanhADOCoBan\bin\Debug\BaiThucHanhADOCoBan.DATA.dll
+D:\Thuc tap\Bai thuc hanh 4\BaiThucHanhADOCoBan\BaiThucHanhADOCoBan\bin\Debug\BaiThucHanhADOCoBan.DATA.pdb
+D:\Thuc tap\Bai thuc hanh 4\BaiThucHanhADOCoBan\BaiThucHanhADOCoBan\obj\Debug\BaiThucHanhADOCoBan.csproj.AssemblyReference.cache
+D:\Thuc tap\Bai thuc hanh 4\BaiThucHanhADOCoBan\BaiThucHanhADOCoBan\obj\Debug\BaiThucHanhADOCoBan.csproj.SuggestedBindingRedirects.cache
+D:\Thuc tap\Bai thuc hanh 4\BaiThucHanhADOCoBan\BaiThucHanhADOCoBan\obj\Debug\BaiThucHanhADOCoBan.csproj.CoreCompileInputs.cache
+D:\Thuc tap\Bai thuc hanh 4\BaiThucHanhADOCoBan\BaiThucHanhADOCoBan\obj\Debug\BaiThucHanhADOCoBan.csproj.CopyComplete
+D:\Thuc tap\Bai thuc hanh 4\BaiThucHanhADOCoBan\BaiThucHanhADOCoBan\obj\Debug\BaiThucHanhADOCoBan.exe
+D:\Thuc tap\Bai thuc hanh 4\BaiThucHanhADOCoBan\BaiThucHanhADOCoBan\obj\Debug\BaiThucHanhADOCoBan.pdb

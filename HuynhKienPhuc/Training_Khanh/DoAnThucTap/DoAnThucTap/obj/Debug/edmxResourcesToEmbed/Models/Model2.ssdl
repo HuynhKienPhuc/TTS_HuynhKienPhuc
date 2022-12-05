@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ThucTap_DoAnModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TBL_ChiTietPhieuThu">
+    <Key>
+      <PropertyRef Name="SoPhieu" />
+      <PropertyRef Name="MaMH" />
+    </Key>
+    <Property Name="SoPhieu" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="MaMH" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ThucTap_DoAn.dbo.TBL_DangKy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="TBL_DangKy">
+    <Key>
+      <PropertyRef Name="MaDangKy" />
+    </Key>
+    <Property Name="MaDangKy" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Mssv" Type="varchar" MaxLength="10" />
+    <Property Name="HocKi" Type="varchar" MaxLength="30" />
+    <Property Name="NgayDK" Type="date" />
+    <Property Name="MaMH" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="TBL_KhoanThuMonHoc">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaMH" Type="varchar" MaxLength="100" />
+    <Property Name="TenMH" Type="nvarchar" MaxLength="200" />
+    <Property Name="SoTC" Type="int" />
+    <Property Name="SoTiet" Type="int" />
+    <Property Name="DonGia" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="TBL_PhieuThu">
+    <Key>
+      <PropertyRef Name="SoPhieu" />
+    </Key>
+    <Property Name="SoPhieu" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Mssv" Type="varchar" MaxLength="10" />
+    <Property Name="NoiDung" Type="nvarchar" MaxLength="100" />
+    <Property Name="NgayThanhToan" Type="date" />
+    <Property Name="SoTienThu" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="DonViThu" Type="nvarchar" MaxLength="100" />
+    <Property Name="TrangThai" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="TBL_SinhVien">
+    <Key>
+      <PropertyRef Name="Mssv" />
+    </Key>
+    <Property Name="Mssv" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Hoten" Type="nvarchar" MaxLength="30" />
+    <Property Name="Gioitinh" Type="nvarchar" MaxLength="10" />
+    <Property Name="Ngaysinh" Type="date" />
+    <Property Name="Lophoc" Type="varchar" MaxLength="10" />
+    <Property Name="Mail" Type="varchar" MaxLength="50" />
+    <Property Name="MatKhau" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="TBL_ThanhToan">
+    <Key>
+      <PropertyRef Name="Idtt" />
+    </Key>
+    <Property Name="Idtt" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Mssv" Type="varchar" MaxLength="10" />
+    <Property Name="SoPhieu" Type="varchar" MaxLength="100" />
+    <Property Name="SoThe" Type="int" />
+    <Property Name="TenThe" Type="varchar" MaxLength="100" />
+    <Property Name="So" Type="int" />
+    <Property Name="NgayHetHan" Type="date" />
+  </EntityType>
+  <Association Name="fk_TBL_PhieuThu_TBL_SinhVien">
+    <End Role="TBL_SinhVien" Type="Self.TBL_SinhVien" Multiplicity="0..1" />
+    <End Role="TBL_PhieuThu" Type="Self.TBL_PhieuThu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_SinhVien">
+        <PropertyRef Name="Mssv" />
+      </Principal>
+      <Dependent Role="TBL_PhieuThu">
+        <PropertyRef Name="Mssv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="sp_ChiTietPhieuThu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="soPhieu" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_GetAllPhieuThu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_GetDonGiaByMaMH" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="mamh" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_GetEmailSinhVien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="mssv" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_GetPhieuThuByAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="masv" Type="varchar" Mode="In" />
+    <Parameter Name="sophieu" Type="varchar" Mode="In" />
+    <Parameter Name="ngaybatdau" Type="datetime" Mode="In" />
+    <Parameter Name="ngayketthuc" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="sp_GetPhieuThuByMaSV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="masv" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_GetPhieuThuByMasvAndSoPhieu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="masv" Type="varchar" Mode="In" />
+    <Parameter Name="sophieu" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_GetPhieuThuByNgayThanhToan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ngaybatdau" Type="datetime" Mode="In" />
+    <Parameter Name="ngayketthuc" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="sp_GetPhieuThuBySoPhieu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="sophieu" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_GetPhieuThuByTrangThai" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="trangthai" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_GetSinhVien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="mssv" Type="varchar" Mode="In" />
+    <Parameter Name="matkhau" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_GetTenMonHocByMaMH" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="mamh" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_GetTrangThai" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="ThucTap_DoAnModel1StoreContainer">
+    <EntitySet Name="TBL_ChiTietPhieuThu" EntityType="Self.TBL_ChiTietPhieuThu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_KhoanThuMonHoc" EntityType="Self.TBL_KhoanThuMonHoc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_PhieuThu" EntityType="Self.TBL_PhieuThu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_SinhVien" EntityType="Self.TBL_SinhVien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_ThanhToan" EntityType="Self.TBL_ThanhToan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_DangKy" EntityType="Self.TBL_DangKy" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[TBL_DangKy].[MaDangKy] AS [MaDangKy], 
+[TBL_DangKy].[Mssv] AS [Mssv], 
+[TBL_DangKy].[HocKi] AS [HocKi], 
+[TBL_DangKy].[NgayDK] AS [NgayDK], 
+[TBL_DangKy].[MaMH] AS [MaMH]
+FROM [dbo].[TBL_DangKy] AS [TBL_DangKy]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="fk_TBL_PhieuThu_TBL_SinhVien" Association="Self.fk_TBL_PhieuThu_TBL_SinhVien">
+      <End Role="TBL_SinhVien" EntitySet="TBL_SinhVien" />
+      <End Role="TBL_PhieuThu" EntitySet="TBL_PhieuThu" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

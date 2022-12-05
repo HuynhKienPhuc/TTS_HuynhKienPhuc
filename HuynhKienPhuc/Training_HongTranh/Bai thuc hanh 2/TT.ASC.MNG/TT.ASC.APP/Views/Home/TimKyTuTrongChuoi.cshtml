@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "TimKyTuTrongChuoi";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+<div>
+    <form action="/Home/TimKyTuTrongChuoi" method="post">
+        <table>
+            <tr>
+                <td colspan="2"><h3>Tìm ký tự trong chuỗi</h3></td>
+            </tr>
+            <tr>
+                <td><label for="chuoi">Nhập vào một chuỗi ký tự: </label></td>
+                <td><input type="text" name="chuoi" /></td>
+            </tr>
+            <tr>
+                <td><label for="kytu">Nhập vào một ký tự: </label></td>
+                <td><input type="text" name="kytu" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="Tìm" /></td>
+            </tr>
+        </table>
+    </form><br />
+    <label>@ViewBag.Chuoi</label><br />
+    <label>@ViewBag.KyTu</label><br />
+    <label>@ViewBag.KetQua</label>
+</div>

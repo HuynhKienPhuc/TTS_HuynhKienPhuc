@@ -1,0 +1,126 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Layout</title>
+    <link href="~/Content/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="header">
+        <h2><b>Danh sách các hàm</b></h2>
+    </div>
+    <div class="menu">
+        <nav>
+            <ul>
+                <li>
+                    <a href="/Home/DinhDangNgayThang">
+                        Viết hàm để định dạng ngày tháng năm,
+                        giờ phút giây
+                    </a>
+                </li>
+                <li><a href="/Home/DocDaySoBatKi">Viết hàm để Đọc dãy số bất kỳ</a></li>
+                <li><a href="/Home/DocSoTienBatKi">Viết hàm đọc số tiền bất kỳ</a></li>
+                <li>
+                    <a href="/Home/RandomKyTuVaSo">
+                        Viết hàm random chuỗi ký tự và số có chiều dài bất kỳ
+                    </a>
+                </li>
+                <li>
+                    <a href="/Home/TraVeNgayDauTien">
+                        Viết hàm truyền vào Tháng và Năm,
+                        trả về ngày đầu tiên của tháng
+                    </a>
+                </li>
+                <li>
+                    <a href="/Home/TraVeNgayCuoiThang">
+                        Viết hàm truyền vào Tháng và Năm,
+                        trả về ngày cuối tháng
+                    </a>
+                </li>
+                <li>
+                    <a href="/Home/TraVeNgayDauTuan">
+                        Viết hàm truyền vào ngày bất kỳ, trả về ngày đầu tuần ( thứ 2 của tuần đó)
+                    </a>
+                </li>
+                <li>
+                    <a href="/Home/TraVeNgayCuoiTuan">
+                        Viết hàm truyền vào ngày bất kỳ, trả về ngày cuối tuần ( chủ nhật của tuần đó)
+                    </a>
+                </li>
+                <li>
+                    <a href="/Home/DemSoKhoangTrang">
+                        Viết hàm đếm số khoản trắng trong 1 chuỗi dữ liệu truyền vào.
+                    </a>
+                </li>
+                <li>
+                    <a href="/Home/KiemTraEmail">
+                        Viết hàm kiểm tra Tính đúng đắn của 1 địa chỉ email truyền vào.
+                    </a>
+                </li>
+                <li>
+                    <a href="/Home/CatChuoiHoTen">
+                        Viết hàm cắt chuỗi họ tên ( tách ra họ và tên đệm khi một chuổi
+                        họ tên được truyền vào)
+                    </a>
+                </li>
+                <li>
+                    <a href="/Home/LamTronSoThapPhan">
+                        Viết hàm làm tròn các số thập phân truyền vào theo các dạng:
+                        Floor, Truncate, Round, Ceiling
+                    </a>
+                </li>
+                <li>
+                    <a href="/Home/VietHoaKyTuDau">
+                        Viết hàm xử lý viết hoa đầu mỗi ký tự đâu tiên theo tên được truyền vào
+                    </a>
+                </li>
+                <li>
+                    <a href="/Home/TimKyTuTrongChuoi">
+                        Viết hàm kiểm tra chuỗi ký tự, kết quả trả về xác định được trong
+                        chuỗi có bao nhiêu ký tự được tìm và ở vị trí bao nhiêu
+                    </a>
+                </li>
+                <li>
+                    <a href="/Home/RandomHoTen">
+                        Viết hàm random họ tên theo danh sách 3 mảng các từ có sẵn (Họ, Đệm, Tên)
+                    </a>
+                </li>
+                <li>
+                    <a href="/Home/TaoListCoSo">
+                        Tạo list cơ sở ( theo số lượng truyền vào)
+                    </a>
+                </li>
+                <li>
+                    <a href="/Home/TaoListLopHoc">
+                        Tạo list Danh sách lớp học ngẫu nhiên theo số lượng lớp truyền vào,
+                        mỗi lớp có 20 sinh viên
+                    </a>
+                </li>
+                <li>
+                    <a href="/Home/TaoListSinhVien">
+                        Tạo List Sinh viên ngẫu nhiên theo tham số truyền vào.
+                    </a>
+                </li>
+                <li>
+                    <a href="/Home/XepLopHoc">
+                        Xếp lớp cho sinh viên
+                    </a>
+                </li>
+            </ul>            
+        </nav>
+    </div>
+    <div class="content">
+        @RenderBody()
+    </div>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

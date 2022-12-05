@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ThucTap_DoAnModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="TBL_ChiTietPhieuThu">
+    <Key>
+      <PropertyRef Name="SoPhieu" />
+      <PropertyRef Name="MaMH" />
+    </Key>
+    <Property Name="SoPhieu" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MaMH" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TBL_KhoanThuMonHoc">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaMH" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="TenMH" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SoTC" Type="Int32" />
+    <Property Name="SoTiet" Type="Int32" />
+    <Property Name="DonGia" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="TBL_PhieuThu">
+    <Key>
+      <PropertyRef Name="SoPhieu" />
+    </Key>
+    <Property Name="SoPhieu" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Mssv" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="NoiDung" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NgayThanhToan" Type="DateTime" Precision="0" />
+    <Property Name="SoTienThu" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="DonViThu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TrangThai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TBL_SinhVien" Relationship="Self.fk_TBL_PhieuThu_TBL_SinhVien" FromRole="TBL_PhieuThu" ToRole="TBL_SinhVien" />
+  </EntityType>
+  <EntityType Name="TBL_SinhVien">
+    <Key>
+      <PropertyRef Name="Mssv" />
+    </Key>
+    <Property Name="Mssv" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Hoten" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Gioitinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Ngaysinh" Type="DateTime" Precision="0" />
+    <Property Name="Lophoc" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MatKhau" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TBL_PhieuThu" Relationship="Self.fk_TBL_PhieuThu_TBL_SinhVien" FromRole="TBL_SinhVien" ToRole="TBL_PhieuThu" />
+  </EntityType>
+  <EntityType Name="TBL_ThanhToan">
+    <Key>
+      <PropertyRef Name="Idtt" />
+    </Key>
+    <Property Name="Idtt" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Mssv" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="SoPhieu" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SoThe" Type="Int32" />
+    <Property Name="TenThe" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="So" Type="Int32" />
+    <Property Name="NgayHetHan" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="TBL_DangKy">
+    <Key>
+      <PropertyRef Name="MaDangKy" />
+    </Key>
+    <Property Name="MaDangKy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Mssv" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="HocKi" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="NgayDK" Type="DateTime" Precision="0" />
+    <Property Name="MaMH" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="fk_TBL_PhieuThu_TBL_SinhVien">
+    <End Role="TBL_SinhVien" Type="Self.TBL_SinhVien" Multiplicity="0..1" />
+    <End Role="TBL_PhieuThu" Type="Self.TBL_PhieuThu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_SinhVien">
+        <PropertyRef Name="Mssv" />
+      </Principal>
+      <Dependent Role="TBL_PhieuThu">
+        <PropertyRef Name="Mssv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ThucTap_DoAnEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TBL_ChiTietPhieuThu" EntityType="Self.TBL_ChiTietPhieuThu" />
+    <EntitySet Name="TBL_KhoanThuMonHoc" EntityType="Self.TBL_KhoanThuMonHoc" />
+    <EntitySet Name="TBL_PhieuThu" EntityType="Self.TBL_PhieuThu" />
+    <EntitySet Name="TBL_SinhVien" EntityType="Self.TBL_SinhVien" />
+    <EntitySet Name="TBL_ThanhToan" EntityType="Self.TBL_ThanhToan" />
+    <EntitySet Name="TBL_DangKy" EntityType="Self.TBL_DangKy" />
+    <AssociationSet Name="fk_TBL_PhieuThu_TBL_SinhVien" Association="Self.fk_TBL_PhieuThu_TBL_SinhVien">
+      <End Role="TBL_SinhVien" EntitySet="TBL_SinhVien" />
+      <End Role="TBL_PhieuThu" EntitySet="TBL_PhieuThu" />
+    </AssociationSet>
+    <FunctionImport Name="sp_ChiTietPhieuThu" ReturnType="Collection(ThucTap_DoAnModel1.sp_ChiTietPhieuThu_Result)">
+      <Parameter Name="soPhieu" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_GetAllPhieuThu" ReturnType="Collection(ThucTap_DoAnModel1.sp_GetAllPhieuThu_Result)" />
+    <FunctionImport Name="sp_GetDonGiaByMaMH" ReturnType="Collection(Decimal)">
+      <Parameter Name="mamh" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_GetEmailSinhVien" ReturnType="Collection(String)">
+      <Parameter Name="mssv" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_GetPhieuThuByAll" ReturnType="Collection(ThucTap_DoAnModel1.sp_GetPhieuThuByAll_Result)">
+      <Parameter Name="masv" Mode="In" Type="String" />
+      <Parameter Name="sophieu" Mode="In" Type="String" />
+      <Parameter Name="ngaybatdau" Mode="In" Type="DateTime" />
+      <Parameter Name="ngayketthuc" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="sp_GetPhieuThuByMaSV" ReturnType="Collection(ThucTap_DoAnModel1.sp_GetPhieuThuByMaSV_Result)">
+      <Parameter Name="masv" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_GetPhieuThuByMasvAndSoPhieu" ReturnType="Collection(ThucTap_DoAnModel1.sp_GetPhieuThuByMasvAndSoPhieu_Result)">
+      <Parameter Name="masv" Mode="In" Type="String" />
+      <Parameter Name="sophieu" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_GetPhieuThuByNgayThanhToan" ReturnType="Collection(ThucTap_DoAnModel1.sp_GetPhieuThuByNgayThanhToan_Result)">
+      <Parameter Name="ngaybatdau" Mode="In" Type="DateTime" />
+      <Parameter Name="ngayketthuc" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="sp_GetPhieuThuBySoPhieu" ReturnType="Collection(ThucTap_DoAnModel1.sp_GetPhieuThuBySoPhieu_Result)">
+      <Parameter Name="sophieu" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_GetPhieuThuByTrangThai" ReturnType="Collection(ThucTap_DoAnModel1.sp_GetPhieuThuByTrangThai_Result)">
+      <Parameter Name="trangthai" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_GetSinhVien" ReturnType="Collection(ThucTap_DoAnModel1.sp_GetSinhVien_Result)">
+      <Parameter Name="mssv" Mode="In" Type="String" />
+      <Parameter Name="matkhau" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_GetTenMonHocByMaMH" ReturnType="Collection(String)">
+      <Parameter Name="mamh" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_GetTrangThai" ReturnType="Collection(String)" />
+    <FunctionImport Name="sp_Get_ChiTietPhieuThu" EntitySet="TBL_ChiTietPhieuThu" ReturnType="Collection(ThucTap_DoAnModel1.TBL_ChiTietPhieuThu)">
+      <Parameter Name="soPhieu" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_GetAllPhieu_Thu" EntitySet="TBL_PhieuThu" ReturnType="Collection(ThucTap_DoAnModel1.TBL_PhieuThu)" />
+    <FunctionImport Name="sp_Get_DonGiaByMaMH" ReturnType="Collection(Decimal)">
+      <Parameter Name="mamh" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_Get_EmailSinhVien" ReturnType="Collection(String)">
+      <Parameter Name="mssv" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_Get_PhieuThuByAll" EntitySet="TBL_PhieuThu" ReturnType="Collection(ThucTap_DoAnModel1.TBL_PhieuThu)">
+      <Parameter Name="masv" Mode="In" Type="String" />
+      <Parameter Name="sophieu" Mode="In" Type="String" />
+      <Parameter Name="ngaybatdau" Mode="In" Type="DateTime" />
+      <Parameter Name="ngayketthuc" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="sp_Get_PhieuThuByMaSV" EntitySet="TBL_PhieuThu" ReturnType="Collection(ThucTap_DoAnModel1.TBL_PhieuThu)">
+      <Parameter Name="masv" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_Get_PhieuThuByMasvAndSoPhieu" EntitySet="TBL_PhieuThu" ReturnType="Collection(ThucTap_DoAnModel1.TBL_PhieuThu)">
+      <Parameter Name="masv" Mode="In" Type="String" />
+      <Parameter Name="sophieu" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_Get_PhieuThuByNgayThanhToan" EntitySet="TBL_PhieuThu" ReturnType="Collection(ThucTap_DoAnModel1.TBL_PhieuThu)">
+      <Parameter Name="ngaybatdau" Mode="In" Type="DateTime" />
+      <Parameter Name="ngayketthuc" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="sp_Get_PhieuThuBySoPhieu" EntitySet="TBL_PhieuThu" ReturnType="Collection(ThucTap_DoAnModel1.TBL_PhieuThu)">
+      <Parameter Name="sophieu" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_Get_PhieuThuByTrangThai" EntitySet="TBL_PhieuThu" ReturnType="Collection(ThucTap_DoAnModel1.TBL_PhieuThu)">
+      <Parameter Name="trangthai" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_Get_SinhVien" EntitySet="TBL_SinhVien" ReturnType="Collection(ThucTap_DoAnModel1.TBL_SinhVien)">
+      <Parameter Name="mssv" Mode="In" Type="String" />
+      <Parameter Name="matkhau" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_Get_TenMonHocByMaMH" ReturnType="Collection(String)">
+      <Parameter Name="mamh" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_Get_TrangThai" ReturnType="Collection(String)" />
+  </EntityContainer>
+  <ComplexType Name="sp_ChiTietPhieuThu_Result">
+    <Property Type="String" Name="SoPhieu" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="MaMH" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="NoiDung" Nullable="true" MaxLength="100" />
+    <Property Type="Decimal" Name="DonGia" Nullable="true" Precision="18" Scale="0" />
+  </ComplexType>
+  <ComplexType Name="sp_GetAllPhieuThu_Result">
+    <Property Type="String" Name="SoPhieu" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Mssv" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="NoiDung" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="NgayThanhToan" Nullable="true" />
+    <Property Type="Decimal" Name="SoTienThu" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="DonViThu" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TrangThai" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="sp_GetPhieuThuByAll_Result">
+    <Property Type="String" Name="SoPhieu" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Mssv" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="NoiDung" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="NgayThanhToan" Nullable="true" />
+    <Property Type="Decimal" Name="SoTienThu" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="DonViThu" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TrangThai" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="sp_GetPhieuThuByMaSV_Result">
+    <Property Type="String" Name="SoPhieu" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Mssv" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="NoiDung" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="NgayThanhToan" Nullable="true" />
+    <Property Type="Decimal" Name="SoTienThu" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="DonViThu" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TrangThai" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="sp_GetPhieuThuByMasvAndSoPhieu_Result">
+    <Property Type="String" Name="SoPhieu" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Mssv" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="NoiDung" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="NgayThanhToan" Nullable="true" />
+    <Property Type="Decimal" Name="SoTienThu" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="DonViThu" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TrangThai" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="sp_GetPhieuThuByNgayThanhToan_Result">
+    <Property Type="String" Name="SoPhieu" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Mssv" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="NoiDung" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="NgayThanhToan" Nullable="true" />
+    <Property Type="Decimal" Name="SoTienThu" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="DonViThu" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TrangThai" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="sp_GetPhieuThuBySoPhieu_Result">
+    <Property Type="String" Name="SoPhieu" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Mssv" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="NoiDung" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="NgayThanhToan" Nullable="true" />
+    <Property Type="Decimal" Name="SoTienThu" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="DonViThu" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TrangThai" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="sp_GetPhieuThuByTrangThai_Result">
+    <Property Type="String" Name="SoPhieu" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Mssv" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="NoiDung" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="NgayThanhToan" Nullable="true" />
+    <Property Type="Decimal" Name="SoTienThu" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="DonViThu" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TrangThai" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="sp_GetSinhVien_Result">
+    <Property Type="String" Name="Mssv" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="Hoten" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Gioitinh" Nullable="true" MaxLength="10" />
+    <Property Type="DateTime" Name="Ngaysinh" Nullable="true" />
+    <Property Type="String" Name="Lophoc" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Mail" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MatKhau" Nullable="true" MaxLength="100" />
+  </ComplexType>
+</Schema>

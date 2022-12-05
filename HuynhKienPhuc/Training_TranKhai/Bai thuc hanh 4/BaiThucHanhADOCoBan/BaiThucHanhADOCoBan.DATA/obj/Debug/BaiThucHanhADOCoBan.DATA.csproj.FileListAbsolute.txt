@@ -1,0 +1,6 @@
+D:\Thuc tap\Bai thuc hanh 4\BaiThucHanhADOCoBan\BaiThucHanhADOCoBan.DATA\bin\Debug\BaiThucHanhADOCoBan.DATA.dll
+D:\Thuc tap\Bai thuc hanh 4\BaiThucHanhADOCoBan\BaiThucHanhADOCoBan.DATA\bin\Debug\BaiThucHanhADOCoBan.DATA.pdb
+D:\Thuc tap\Bai thuc hanh 4\BaiThucHanhADOCoBan\BaiThucHanhADOCoBan.DATA\obj\Debug\BaiThucHanhADOCoBan.DATA.csproj.AssemblyReference.cache
+D:\Thuc tap\Bai thuc hanh 4\BaiThucHanhADOCoBan\BaiThucHanhADOCoBan.DATA\obj\Debug\BaiThucHanhADOCoBan.DATA.csproj.CoreCompileInputs.cache
+D:\Thuc tap\Bai thuc hanh 4\BaiThucHanhADOCoBan\BaiThucHanhADOCoBan.DATA\obj\Debug\BaiThucHanhADOCoBan.DATA.dll
+D:\Thuc tap\Bai thuc hanh 4\BaiThucHanhADOCoBan\BaiThucHanhADOCoBan.DATA\obj\Debug\BaiThucHanhADOCoBan.DATA.pdb

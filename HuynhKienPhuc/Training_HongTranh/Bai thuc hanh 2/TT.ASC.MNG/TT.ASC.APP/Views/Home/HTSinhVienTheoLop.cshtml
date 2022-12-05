@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "HTSinhVienTheoLop";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@using TT.ASC.DATA
+@model List<SinhVien>
+
+
+@if (Model != null)
+{
+    <h2>Danh sách sinh viên</h2>
+    <h4>Số lượng sinh viên: @Model.Count</h4>
+    <h5>@ViewBag.SoNam</h5>
+    <h5>@ViewBag.SoNu</h5>
+    <div>
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Mã SV</th>
+                <th>Họ đệm</th>
+                <th>Tên</th>
+                <th>Giới tính</th>
+                <th>Lớp học</th>
+            </tr>
+            @foreach (var sv in Model)
+            {
+                <tr>
+                    <td>@sv.ID</td>
+                    <td>@sv.Ma</td>
+                    <td>@sv.HoDem</td>
+                    <td>@sv.Ten</td>
+                    @switch (sv.GioiTinh)
+                    {
+                        case 1:
+                            <td>Nam</td>
+                            break;
+                        case 2:
+                            <td>Nữ</td>
+                            break;
+                        case 3:
+                            <td>Khác</td>
+                            break;
+                        default:
+                            break;
+                    }
+                    <td>@sv.LopHoc</td>
+                </tr>
+            }
+        </table>
+    </div>
+}
+else
+{
+    <label>@ViewBag.ThongBao</label>
+}
+

@@ -1,0 +1,105 @@
+﻿html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+.header{
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid;
+    text-align: center;
+    margin-bottom: 0;
+    font-family: monospace;
+}
+.menu {
+    width: 30%;
+    height: 100%;
+    background-color: lightgray;
+    margin-top: 0;
+    float: left;
+    padding: 0;
+    overflow: auto;
+    font-size: 15px;
+}
+.menu ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.menu ul li{
+    border-bottom: 1px solid black;
+}
+.menu ul li:hover{
+    background-color: springgreen;
+}
+.menu ul li a{
+    text-decoration: none;
+    color: black;
+    font-family: monospace;
+}
+.content {
+    width: 70%;
+    height: 100%;
+    margin-top: 0;
+    padding: 10px;
+    float: left;
+    padding: 0;
+    overflow: auto;
+    font-size: 14px;
+}
+.button {
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    padding: 10px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+/* Remove default bullets */
+ul, #myUL {
+    list-style-type: none;
+}
+
+/* Remove margins and padding from the parent ul */
+#myUL {
+    margin: 0;
+    padding: 0;
+}
+#myUL li{
+    width: 100%;
+    padding-left: 20px;
+}
+
+/* Style the caret/arrow */
+.caret {
+    cursor: pointer;
+    user-select: none;  
+}
+
+    /* Create the caret/arrow with a unicode, and style it */
+/*.caret::before {
+    content: "\25B6";
+    color: black;
+    display: inline-block;
+    margin-right: 6px;
+}*/
+
+/* Rotate the caret/arrow icon when clicked on (using JavaScript) */
+.caret-down::before {
+    transform: rotate(90deg);
+}
+
+/* Hide the nested list */
+.nested {
+    display: none;
+}
+
+/* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
+.active {
+    display: block;
+}

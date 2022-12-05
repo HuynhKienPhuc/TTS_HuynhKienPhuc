@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "TaoListCoSo";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<link href="~/Content/style.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+@using TT.ASC.DATA
+@model List<CoSo>
+
+<h3>Tạo danh sách cơ sở</h3>
+<form action="/Home/TaoListCoSo" method="post">
+    <label for="soluong">Nhập số lượng cơ sở: </label>
+    <input type="number" name="soluong" value="1" min="1" />
+    <input type="submit" value="Tạo" />
+</form>
+@if (Model != null)
+{
+    <h4>Số lượng cơ sở: @Model.Count</h4>
+    <div>
+        <table border="1" class="table table-hover">
+            <tr>
+                <th>ID</th>
+                <th>Mã cơ sở</th>
+                <th>Tên cơ sở</th>
+            </tr>
+            @foreach (var coSo in Model)
+            {
+
+                <tr>
+                    <td>@coSo.ID</td>
+                    <td>@coSo.Ma</td>
+                    <td>@coSo.Ten</td>
+                </tr>
+            }
+        </table>
+    </div>
+}
+else
+{
+    <label>@ViewBag.ThongBao</label>
+}
+

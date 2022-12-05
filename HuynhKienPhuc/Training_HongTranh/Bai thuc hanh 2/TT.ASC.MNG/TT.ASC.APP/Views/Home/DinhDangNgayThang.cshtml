@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "DinhDangNgayThang";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h3>Định dạng ngày tháng năm, giờ phút giây</h3>
+<form action="/Home/DinhDangNgayThang" method="post">
+    <label for="input">Nhập ngày tháng năm: </label>
+    <input type="datetime-local" name="input" /><br /><br />
+    <label for="kieudinhdang">Chọn kiểu định dạng: </label>
+    <select name="kieudinhdang">
+        <option value="Ngày và thời gian">Ngày và thời gian</option>
+        <option value="yyyy-MM-dd">yyyy-MM-dd</option>
+        <option value="dd-MMM-yy">dd-MMM-yy</option>
+        <option value="dd/MM/yyyy">dd/MM/yyyy</option>
+        <option value="M/d/yy">M/d/yy</option>
+        <option value="MM/dd/yyyy">MM/dd/yyyy</option>
+        <option value="MM/dd/yy">MM/dd/yy</option>
+        <option value="yy/MM/dd">yy/MM/dd</option>
+        <option value="Năm">Năm</option>
+        <option value="Tháng">Tháng</option>
+        <option value="Ngày">Ngày</option>
+        <option value="Giờ">Giờ</option>
+        <option value="Phút">Phút</option>
+        <option value="Giây">Giây</option>
+        <option value="ShortTime">ShortTime</option>
+        <option value="ShortDate">ShortDate</option>
+        <option value="LongTime">LongTime</option>
+        <option value="LongDate">LongDate</option>
+        <option value="LongDate+ShortTime">LongDate+ShortTime</option>
+        <option value="FullDateTime">FullDateTime</option>
+        <option value="ShortDate+ShortTime">ShortDate+ShortTime</option>
+        <option value="ShortDate+LongTime">ShortDate+LongTime</option>
+        <option value="MonthDay">MonthDay</option>
+        <option value="MonthYear">MonthYear</option>
+    </select>
+    <br /><br />
+    <input type="submit" value="Xác nhận" />
+</form>
+<br />
+<label>@ViewBag.Input</label>
+<br />
+<label>@ViewBag.KieuDinhDang</label>
+<br />
+<label>@ViewBag.KetQua</label>
+

@@ -1,0 +1,9 @@
+﻿
+@{
+    ViewBag.Title = "RandomHoTen";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<link href="~/Content/style.css" rel="stylesheet" />
+<h3>Random họ tên</h3>
+@Html.ActionLink("Tạo random họ tên", "Random", "Home", new { @class = "button" })
+&nbsp;&nbsp;<label>@ViewBag.HoTen</label>

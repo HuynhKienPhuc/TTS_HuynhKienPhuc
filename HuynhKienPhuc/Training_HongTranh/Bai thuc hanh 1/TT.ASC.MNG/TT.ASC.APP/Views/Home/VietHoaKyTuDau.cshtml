@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>VietHoaKyTuDau</title>
+    <style>
+        div {
+            text-align: center;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div>
+        <h2>Viết hoa đầu mỗi ký tự đâu tiên theo tên được truyền vào</h2>
+        <form action="/Home/VietHoaKyTuDau" method="post">
+            <label for="chuoi">Nhập vào chuỗi dữ liệu: </label>
+            <input type="text" name="chuoi" />
+            <input type="submit" value="Xác nhận" />
+        </form><br />
+        <label>@ViewBag.ChuoiVietHoa</label><br />
+        <label>@ViewBag.ThongBao</label>
+    </div>
+</body>
+</html>

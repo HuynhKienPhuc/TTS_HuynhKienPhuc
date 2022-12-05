@@ -1,0 +1,43 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>LamTronSoThapPhan</title>
+    <style>
+        div {
+            text-align: center;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div>
+        <h2>Làm tròn các số thập phân truyền vào theo các dạng: Floor, Truncate, Round, Ceiling</h2>
+        <form action="/Home/LamTronSoThapPhan" method="post">
+            <label for="sothapphan">Nhập vào một số thập phân: </label>
+            <input type="text" name="sothapphan" /><br /><br />
+            <label for="danglamtron">Chọn dạng làm tròn cho số thập phân: </label>
+            <select name="danglamtron" id="danglamtron">
+                <option value="Ceiling">Làm tròn lên (Ceiling)</option>
+                <option value="Floor">Làm tròn xuống (Floor)</option>
+                <option value="Truncate">Làm tròn lên hoặc xuống về không (Truncate)</option>
+                <option value="Round">Làm tròn đến số nguyên gần nhất (Round)</option>
+                <option value="RoundVoiSoChuSoThapPhan">Làm tròn đến vị trí thập phân cụ thể (Round)</option>
+            </select><br /><br />
+            <label for="soChuSoThapPhan">Chọn số chữ số thập phân muốn làm tròn đến: </label>
+            <input type="number" name="sochusothapphan" min="0" value="0"/><br /><br />
+            <input type="submit" value="Làm tròn" />
+        </form><br />
+        <label>@ViewBag.SoThapPhan</label><br />
+        <label>@ViewBag.DangLamTron</label><br />
+        <label>@ViewBag.KetQua</label>
+    </div>
+</body>
+</html>

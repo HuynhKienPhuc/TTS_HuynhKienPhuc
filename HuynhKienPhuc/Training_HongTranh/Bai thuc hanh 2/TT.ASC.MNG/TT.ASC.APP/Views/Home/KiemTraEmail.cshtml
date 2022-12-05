@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "KiemTraEmail";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h3>Kiểm tra tính đúng đắn của một địa chỉ email truyền vào</h3>
+<form action="/Home/KiemTraEmail" method="post">
+    <label for="email">Nhập địa chỉ email để kiểm tra: </label>
+    <input type="text" name="email" />
+    <input type="submit" value="Kiểm tra" />
+</form>
+<br />
+<label>@ViewBag.KetQua</label>
+

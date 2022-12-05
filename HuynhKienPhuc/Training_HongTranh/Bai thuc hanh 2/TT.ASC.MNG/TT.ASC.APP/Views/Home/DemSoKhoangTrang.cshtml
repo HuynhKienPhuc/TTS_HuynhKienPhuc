@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "DemSoKhoangTrang";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h3>Đếm số khoảng trắng trong 1 chuỗi dữ liệu truyền vào</h3>
+<form action="/Home/DemSoKhoangTrang" method="post">
+    <label for="chuoi">Nhập vào chuỗi dữ liệu: </label>
+    <input type="text" name="chuoi" />
+    <input type="submit" value="Đếm số khoảng trắng" />
+</form>
+<br />
+<label>@ViewBag.Chuoi</label>
+<br />
+<label>@ViewBag.SoKhoangTrang</label>
+
